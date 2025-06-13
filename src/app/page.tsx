@@ -3,7 +3,7 @@ const page = () => {
   //  const data :number="hi";
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <h1>FrontEnd Usersss uu test ok do duuu du</h1>
+      <h1>FrontEnd Usersss uu test ok do duuu du,main</h1>
     </div>
   );
 };
