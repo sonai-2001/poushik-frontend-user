@@ -1,10 +1,10 @@
 import React from 'react'
 
 const page = () => {
- const data :number="hi";
+//  const data :number="hi";
   return (
-    <div>
-      
+    <div className='w-full h-screen flex items-center justify-center'>
+           <h1>FrontEnd User</h1>
     </div>
   )
 }
