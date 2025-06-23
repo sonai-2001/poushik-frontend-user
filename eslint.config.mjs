@@ -10,6 +10,9 @@ const compat = new FlatCompat({ baseDirectory: __dirname });
 const unusedImports = await import('eslint-plugin-unused-imports');
 
 export default [
+  {
+    ignores: ['.next/**'],
+  },
   ...compat.extends(
     'next/core-web-vitals',
     'plugin:import/recommended',
