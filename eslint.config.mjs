@@ -7,7 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const compat = new FlatCompat({ baseDirectory: __dirname });
 
-// Plugin: unused-imports
 const unusedImports = await import('eslint-plugin-unused-imports');
 
 export default [
@@ -22,7 +21,6 @@ export default [
       'unused-imports': unusedImports.default,
     },
     rules: {
-      // 🔥 Strict formatting
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
       'no-multi-spaces': 'error',
@@ -32,16 +30,12 @@ export default [
       'space-before-blocks': ['error', 'always'],
       'keyword-spacing': ['error', { before: true, after: true }],
       'prettier/prettier': ['error', { singleQuote: true, semi: true }],
-
-      // 🚫 Unused cleanup
       'no-unused-vars': 'off',
       'unused-imports/no-unused-vars': [
         'error',
         { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
       ],
       'unused-imports/no-unused-imports': 'error',
-
-      // 📦 Import sorting
       'import/order': [
         'error',
         {
@@ -52,6 +46,23 @@ export default [
           'newlines-between': 'always',
         },
       ],
+    },
+  },
+  {
+    // 🔽 override rules only for shadcn components
+    files: ['src/components/ui/**/*.{js,ts,jsx,tsx}'],
+    rules: {
+      quotes: 'off',
+      semi: 'off',
+      'comma-dangle': 'off',
+      'object-curly-spacing': 'off',
+      'array-bracket-spacing': 'off',
+      'space-before-blocks': 'off',
+      'keyword-spacing': 'off',
+      'prettier/prettier': 'off',
+      'unused-imports/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'off',
+      'import/order': 'off',
     },
   },
 ];
