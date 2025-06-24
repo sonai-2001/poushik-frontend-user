@@ -49,8 +49,68 @@ export const useResetPassHook = () => {
   });
 };
 
+export const useStep1Register = () => {
+  return useMutation<TAuthModel['IRegisterStep1Response'], Error, TAuthModel['IStep1Register']>({
+    mutationKey: [LoginQueryEnum.Reset],
+    mutationFn: async (payload: TAuthModel['IStep1Register']) => {
+      const res = await axiosInstance.post<TAuthModel['IRegisterStep1Response']>(
+        endpoints.auth.step1Register,
+        payload,
+      );
+
+      return res?.data;
+    },
+  });
+};
+
+export const useStep2PetOwner = () => {
+  return useMutation<TCommonSchema['BaseApiResponse'], Error, TAuthModel['IStep2PetOwner']>({
+    mutationKey: [LoginQueryEnum.Reset],
+    mutationFn: async (payload: TAuthModel['IStep2PetOwner']) => {
+      const res = await axiosInstance.post<TCommonSchema['BaseApiResponse']>(
+        endpoints.auth.step2RegisterPetOwner,
+        payload,
+      );
+
+      return res?.data;
+    },
+  });
+};
+
+const useStep2PetDoctor = () => {
+  return useMutation<TCommonSchema['BaseApiResponse'], Error, TAuthModel['IStep2PetDoctor']>({
+    mutationKey: [LoginQueryEnum.Reset],
+    mutationFn: async (payload: TAuthModel['IStep2PetDoctor']) => {
+      const res = await axiosInstance.post<TCommonSchema['BaseApiResponse']>(
+        endpoints.auth.step2RegisterPetDoctor,
+        payload,
+      );
+
+      return res?.data;
+    },
+  });
+};
+
+const useStep2PetSeller = () => {
+  return useMutation<TCommonSchema['BaseApiResponse'], Error, TAuthModel['IStep2PetSeller']>({
+    mutationKey: [LoginQueryEnum.Reset],
+    mutationFn: async (payload: TAuthModel['IStep2PetSeller']) => {
+      const res = await axiosInstance.post<TCommonSchema['BaseApiResponse']>(
+        endpoints.auth.step2RegisterPetSeller,
+        payload,
+      );
+
+      return res?.data;
+    },
+  });
+};
+
 export const authService = {
   useAuthLoginHook,
   useForgotPassHook,
   useResetPassHook,
+  useStep1Register,
+  useStep2PetDoctor,
+  useStep2PetSeller,
+  useStep2PetOwner,
 };

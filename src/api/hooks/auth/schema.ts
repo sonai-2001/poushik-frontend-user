@@ -17,6 +17,21 @@ export type TAuthModel = {
     createdAt: string;
   };
 
+  IStep1RegisterData: {
+    fullName: string;
+    email: string;
+    password: string;
+    role: 'pet-owner' | 'pet-doctor' | 'seller';
+    profileImage: File;
+  };
+
+  IStep1Register: FormData;
+
+  IStep2PetOwner: FormData;
+
+  IStep2PetDoctor: FormData;
+  IStep2PetSeller: FormData;
+
   IData: {
     user: TAuthModel['IUserData'];
     accessToken: string;
@@ -123,5 +138,9 @@ export type TAuthModel = {
 
   IResetPassResponse: TCommonSchema['BaseApiResponse'] & {
     data: TAuthModel['IAuthResponseBody'];
+  };
+  IRegisterStep1Response: TCommonSchema['BaseApiResponse'] & {
+    regToken: string;
+    nextStep: string;
   };
 };

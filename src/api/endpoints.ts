@@ -14,6 +14,11 @@ export const endpoints = {
     refresh: 'auth/refresh-token',
     check: '/admin/auth/check-auth',
     profileDetails: 'auth/profile-details',
+    step1Register: 'auth/register-step1',
+    step2RegisterPetOwner: 'auth/register-step2/pet-owner',
+    step2RegisterPetDoctor: 'auth/register-step2/pet-doctor',
+    step2RegisterPetSeller: 'auth/register-step2/seller',
+    finalStep: 'auth/register-step3',
   },
   user: {
     users: {
