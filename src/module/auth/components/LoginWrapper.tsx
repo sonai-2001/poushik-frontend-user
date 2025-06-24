@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 import { parseCookies } from 'nookies';
 import React, { useEffect } from 'react';
